@@ -1,0 +1,32 @@
+5 要train起来，需要把data/coco.yaml的路径替换掉,里面的文件内容下载coco2017labels.zip文件解压即可（images里面是空的，需要把coco图片放入）
+
+
+6 detect要运行起来，需要把yolo.py里面的36行 x[i] = self.m[i](x[i]) 注释掉
+但是如果要train，则不能注释，原因是作者提供的pt权重文件和代码对不上
+
+
+7 新增了vis_bbox和vis_match函数，第一个是可视化bbox，第二个是可视化匹配情况,代码在
+general.py的707行和714行，可以自行注释或者打开
+
+
+1 自己下载pytoch安装，运行时候nms总是提示找不到，后来直接用作者的requirement就可以了，看来是安装顺序非常重要
+但是上面安装的版本其实是cpu的，不对，故在上述安装好前置库后，再重新安装pytorch和torchvision，安装gpu版本
+
+2 torch.save(ckpt, last)  # 同时保存了模型，在load时候会自动检查保存模型和当前模型代码是否有改动
+
+
+3 安装opencv运行，出现python:10503): Gtk-CRITICAL **: IA__gtk_widget_style_get: assertion 'GTK_IS_WIDGET (widget)' failed
+重新选择一个低版本版本安装就好了
+
+4 运行时候会出现一大堆警告：QObject::moveToThread: Current thread is not the object`s thread. Cannot move to target thread
+采用conda install pyqt 就可以了、
+
+
+
+
+
+
+
+
+
+
